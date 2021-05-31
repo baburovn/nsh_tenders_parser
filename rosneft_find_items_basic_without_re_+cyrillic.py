@@ -1,4 +1,4 @@
-
+#пример, без использования regular expressions. Находим нужную нам строку с названием закупки, слайсим по индексу. 
 import urllib.request
 from urllib.parse import quote
 
@@ -12,10 +12,7 @@ print(fhand)
 for line in fhand:
     m = line.decode().strip()
     if rosnefttkp in m:
-        #print(line.strip())
         start_link = m.find("https:")
-        #end_link = m.find("?lang=ru")
-        #end_link = m.find('"', start_link)
         end_link = m.find('?la', start_link)
         print(m[start_link:end_link])
 
