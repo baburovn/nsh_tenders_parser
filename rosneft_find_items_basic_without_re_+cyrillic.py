@@ -5,13 +5,7 @@ from urllib.parse import quote
 
 #Вводим URL для парсинга
 rosnefttkp = "https://www.tektorg.ru/rosnefttkp/procedures/"
-#Вводим ссылки для парсинга.
-#fhand = urllib.request.urlopen('https://www.tektorg.ru/procedures?q=petroleum+experts&lang=ru&sort=date&order=desc')
-#fhand_start = ('https://www.tektorg.ru/procedures?q=')
-#вводим наш запрос на поиск, вместо пробелов ставим +:
-#fhand_middle = ("сейсморазведка")
-#fhand_end = ('&lang=ru&sort=date&order=desc')
-#fhand = fhand_start + fhand_middle + fhand_end
+#Вводим ссылки для парсинга. В строку после quote добавляем слово для поиска, пробелы заменяем +
 fhand = urllib.request.urlopen('https://www.tektorg.ru/procedures?q=' +quote('сейсморазведка') + "&lang=ru&sort=date&order=desc'")
 
 print(fhand)
