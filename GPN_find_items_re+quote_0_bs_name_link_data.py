@@ -17,31 +17,6 @@ url_link = urllib.request.urlopen('https://zakupki.gazprom-neft.ru/tenderix/inde
 
 soup = BeautifulSoup(url_link, "html5lib")
 
-#Получилось достать таки ссылки. прекрасно.
-"""page_purchases_list_all = soup.find_all(class_="purchase-number")
-list_link = []
-for i in page_purchases_list_all:
-    #print(i.find("a").get("href"))
-    k = i.find("a").get("href")
-    if k not in list_link:
-        list_link.append(k)
-print(list_link)
-for i in list_link:
-    pp = "https://zakupki.gazprom-neft.ru" + i
-    print(pp)
-print(len(list_link))
-
-page_purchases_list_all2 = soup.find_all(class_="purchase-desc")
-list_link = []
-for i in page_purchases_list_all2:
-    #print(i.find("a").get("href"))
-    k = i.text
-    k = k.strip()
-    if k not in list_link:
-        list_link.append(k)
-print(list_link)
-print(len(list_link))
-"""
 def purchases_number_foo():
     purchases_time = soup.find_all(class_="purchase ~purchase-popup")
     #print(purchases_time)
@@ -58,4 +33,14 @@ def purchases_number_foo():
         #print("https://zakupki.gazprom-neft.ru"+k)
     return print(purchases_time_number_list)
 
-purchases_number_foo()
+#purchases_number_foo()
+
+
+def purchases_page_name():
+
+    for i in purchases_page:
+        purchases_desc = i.find("div", class_="purchase-desc").text.strip()
+        if purchases_desc not in purchases_name_list:
+            purchases_name_list.append(purchases_desc)
+    return purchases_name_list
+oop = purchases_page_name()
