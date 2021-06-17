@@ -11,4 +11,5 @@
 
 Парсер для ПАО Газпром нефть: [ссылка](https://github.com/baburovn/nsh_tenders_parser/blob/main/GPN_parser_v_0_2.py)
 
-Парсер для ПАО Роснефть, Лукойл: in progress
+Парсер для ПАО Роснефть, Лукойл: in progress (парсит название и ссылку на закупку, добавить даты)
+
