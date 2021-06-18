@@ -13,13 +13,13 @@ import csv
 search_quote = "petroleum"
 
 #поиск по актуальным, завершенным и архивным:
-url_link = urllib.request.urlopen('https://www.tektorg.ru/procedures?lang=ru&q='+ quote(search_quote) + "&sort=datestart")
-#url_link_file = "url_link_file"
+#url_link = urllib.request.urlopen('https://www.tektorg.ru/procedures?lang=ru&q='+ quote(search_quote) + "&sort=datestart")
+url_link_file = "url_link_file"
 
-"""with open("tektorg.html", 'r', encoding='utf-8') as file:
+with open("tektorg.html", 'r', encoding='utf-8') as file:
     soup = BeautifulSoup(file, "html5lib")
-    #print(soup)"""
-soup = BeautifulSoup(url_link, "html5lib")
+    #print(soup)
+#soup = BeautifulSoup(url_link, "html5lib")
 
 
 def purchases_page_link():
@@ -32,6 +32,35 @@ def purchases_page_link():
     #print("количество ссылок на тендера", count)
     return purchases_page_link_lst
 
+def purchases_page_date():
+    purchases_page_date_lst = []
+    count = 0
+    purchases_page = soup.find_all(class_="section-procurement__item-date")
+    for a in purchases_page:
+        purch_date = a.find_next()
+        print(purch_date)
+        count += 1
+    print(count)
+    #print("количество ссылок на тендера", count)
+    #return purchases_page_link_lst
+
+def purchases_page_date2():
+    count = 0
+    # в section-procurement__item находятся 4 одинаковых тега div с нужными нам параметрами: дата начала подачи, дата окончания подачи"
+    purchases_page = soup.find_all(class_="section-procurement__item")
+    for i in purchases_page:
+        #находим div с датой начала приема предложений
+        #purchases_date = i.find(class_="section-procurement__item-date").find_next().b.next_sibling.strip()
+        #находим div с датой окончания приема предложений
+        #purchases_date = i.find(class_="section-procurement__item-date").find_next().next_sibling.next_sibling.b.next_sibling.strip()
+        print(purchases_date)
+        count += 1
+
+
+    print(count)
+
+purchases_page_date2()
+
 
 def purchases_page_name():
     purchases_page_name_lst = []
@@ -42,7 +71,7 @@ def purchases_page_name():
         count += 1
     #print("количество названий тендеров", count)
     return purchases_page_name_lst
-#purchases_page_name()
+#print(len(purchases_page_name()))
 #purchases_page_link()
 
 today = datetime.today().strftime("%d_%m_%Y_%H_%M_%S")
