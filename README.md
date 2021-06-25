@@ -10,6 +10,8 @@
 На выходе, проект должен записывать в файл формата "запрос_времязапроса".csv с заголовками:   "Наименование закупки"	"Ссылка закупки"	"Начало приема предложений"	"Окончание приема предложений"
 
 Парсер для ПАО Газпром нефть: [ссылка](https://github.com/baburovn/nsh_tenders_parser/blob/main/GPN_parser_v_0_2.py)
+
 Парсер для ПАО Роснефть: [ссылка](https://github.com/baburovn/nsh_tenders_parser/blob/main/rosneft_parser_01.py)
+
 Парсер для ПАО Лукойл: in progress
 
